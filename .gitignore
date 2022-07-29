@@ -1,0 +1,6 @@
+wc/huge.txt
+wc/lib*.c
+wc/lib*.h
+wc/lib*.json
+wc/wc-*
+wc/wc
