@@ -34,6 +34,7 @@ int main(int argc, char** argv) {
 
   #ifdef OPENCL
   if(getenv("OPENCL_DEVICE") != NULL) {
+    printf("OPENCL is running\n");
     futhark_context_config_set_device(cfg, getenv("OPENCL_DEVICE"));
   }
   #endif

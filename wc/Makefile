@@ -29,7 +29,18 @@ wc-opencl: wc.c libwc-opencl.c libwc-opencl.h
 	gcc wc.c libwc-opencl.c -o wc-opencl $(CFLAGS) $(OPENCL_LDFLAGS) -DOPENCL
 
 huge.txt: big.txt
-	cat big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt > huge.txt
+	cat big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt big.txt > huge.txt
 
 clean:
-	rm -f wc-* libwc-*.c libwc-*.h huge.txt
+	rm -f wc-* libwc-*.c libwc-*.h huge.txt libwc-*.a libwc-*.o libwc-*.so
+
+libwc-c.o: libwc-c.c
+	gcc -c libwc-c.c -fPIC -o libwc-c.o
+
+libwc-c.so: libwc-c.o
+	gcc -shared libwc-c.o -o libwc-c.so
+
+libwc-c.a: libwc-c.o
+	ar crs libwc-c.a libwc-c.o
+
+libwc-c: libwc-c.o libwc-c.a libwc-c.so
